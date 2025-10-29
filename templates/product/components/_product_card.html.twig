@@ -1,0 +1,85 @@
+<td class="product-card">
+  {% if loop.index0 == 0 %}
+    <div class="ranking-badge ranking-badge--best-option">#1 MEJOR OPCIÓN 2025</div>
+  {% elseif loop.index0 == 2 %}
+    <div class="ranking-badge ranking-badge--best-value">#3 MEJOR VALOR 2025</div>
+  {% endif %}
+
+  <div class="product-image-section">
+    <div class="product-image-section__position">#{{ loop.index0 + 1 }}</div>
+    <img src="{{ product.image }}" class="product-image-section__img" alt="{{ product.title }}" />
+  </div>
+
+  <div class="score">
+    <div class="score__number">{{ (10 - loop.index0 * 0.1)|number_format(1) }}</div>
+    <div class="score__stars">
+      {% if loop.index0 < 2 %}
+        ★★★★★
+      {% elseif loop.index0 < 4 %}
+        ★★★☆☆
+      {% elseif loop.index0 < 6 %}
+        ★★☆☆☆
+      {% else %}
+        ★☆☆☆☆
+      {% endif %}
+    </div>
+
+    <div class="score__label {% if loop.index0 < 2 %}{% endif %}">
+      {% if loop.index0 < 2 %}
+        "Excepcional"
+      {% elseif loop.index0 < 4 %}
+        "Excelente"
+      {% elseif loop.index0 < 6 %}
+        "Bien"
+      {% else %}
+        "Regular"
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h3 class="product-info__title">{{ product.title|slice(0, 60) }}...</h3>
+    <div class="product-info__brand">{{ product.brand }}</div>
+
+    <div class="key-features">
+      {% if product.savings %}
+        <span class="key-features__discount">{{ product.savings.Percentage }}% Descuento</span>
+      {% endif %}
+      {% if product.freeShipping %}
+        <span class="key-features__shipping">Envío gratis</span>
+      {% endif %}
+      <div class="key-features__more-link">
+        <a href="#" class="toggle-features" data-product-id="{{ loop.index }}"><span class="toggle-text">Mostrar más ▼</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="buy">
+    <p class="buy__price">{{ product.displayPrice }}</p>
+    <a href="{{ product.url }}" target="_blank" class="btn btn--secondary buy__button">
+      Comprar ahora<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart-share">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M12.5 17h-6.5v-14h-2" />
+        <path d="M6 5l14 1l-1 7h-13" />
+        <path d="M16 22l5 -5" />
+        <path d="M21 21.5v-4.5h-4.5" />
+      </svg>
+    </a>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png" alt="Amazon" class="buy__logo" />
+  </div>
+</td>
+
+{# Sección de características #}
+{% if (product.features|length) > 0 %}
+  <td class="features-expanded" id="features-{{ loop.index }}" style="display: none;">
+    <div class="features-expanded__content">
+      <h4 class="features-expanded__title">Características completas</h4>
+      <ul class="features-expanded__list">
+        {% for feature in product.features %}
+          <li class="features-expanded__item">{{ feature }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </td>
+{% endif %}

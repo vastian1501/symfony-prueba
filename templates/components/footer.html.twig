@@ -1,0 +1,25 @@
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('styles/components/footer.css') }}" />
+{% endblock %}
+
+<footer class="footer">
+    <div class="footer__back-to-top">
+        <a href="#" class="footer__back-to-top-link">Volver arriba</a>
+    </div>
+    
+    <div class="footer__bottom">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <span class="footer__logo">Produczon</span>
+            </div>
+            <div class="footer__legal">
+                <a href="#" class="footer__legal-link">Condiciones de uso</a>
+                <a href="#" class="footer__legal-link">Aviso de privacidad</a>
+                <a href="#" class="footer__legal-link">Cookies</a>
+            </div>
+            <div class="footer__copyright">
+                <p class="footer__copyright-text">&copy; {{ 'now'|date('Y') }} Produczon. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>

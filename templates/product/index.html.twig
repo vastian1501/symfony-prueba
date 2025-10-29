@@ -1,20 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}
+  Lista de productos
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/product/product.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('js/product/product.js') }}" defer></script>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/javieratiencia/Desktop/Symfony/widi/src/Controller/ProductController.php</code></li>
-        <li>Your template at <code>/Users/javieratiencia/Desktop/Symfony/widi/templates/product/index.html.twig</code></li>
-    </ul>
-</div>
+  <table class="container_product products-table">
+    <tr class="products-table__header">
+      <th>Producto</th>
+      <th>Nuestra Puntuación</th>
+      <th>Características Clave</th>
+      <th></th>
+    </tr>
+    <tr class="product-table__body">
+      {% for product in products %}
+        {% include 'product/components/_product_card.html.twig' %}
+      {% else %}
+        <td>No hay productos.</td>
+      {% endfor %}
+    </tr>
+  </table>
 {% endblock %}
