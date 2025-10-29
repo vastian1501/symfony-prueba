@@ -1,0 +1,23 @@
+.home__container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: calc(100vh - 180px);
+}
+
+.home__content {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* .home__link{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+} */
