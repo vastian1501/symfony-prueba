@@ -2,12 +2,16 @@
   <link rel="stylesheet" href="{{ asset('styles/components/navbar.css') }}" />
 {% endblock %}
 
+{% block javascripts %}
+  <script src="{{ asset('js/components/navbar.js') }}" defer></script>
+{% endblock %}
+
 <header class="nav">
   <div class="nav__container">
     <a href="{{ path('app_home') }}" class="nav__brand">
       <h1 class="nav__title">Produczon</h1>
       <span class="nav__icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-amazon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffc93c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-amazon">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M17 12.5a15.198 15.198 0 0 1 -7.37 1.44a14.62 14.62 0 0 1 -6.63 -2.94" />
           <path d="M19.5 15c.907 -1.411 1.451 -3.323 1.5 -5c-1.197 -.773 -2.577 -.935 -4 -1" />
@@ -16,10 +20,22 @@
     </a>
 
     <nav class="nav__links">
-      <a href="{{ path('app_home') }}" class="nav__link">
-        <span class="nav__link-line1">Hola, Identifícate</span>
-        <span class="nav__link-line2">Ver Productos</span>
-      </a>
+      {% if app.user %}
+        <div class="nav__dropdown">
+          <button class="nav__link nav__dropdown-toggle">
+            <span class="nav__link-line1">Hola, {{ app.user.email }}</span>
+            <span class="nav__link-line2">Mi cuenta ▼</span>
+          </button>
+          <div class="nav__dropdown-menu">
+            <a href="{{ path('app_logout') }}" class="nav__dropdown-item">Cerrar sesión</a>
+          </div>
+        </div>
+      {% else %}
+        <a href="{{ path('app_login') }}" class="nav__link">
+          <span class="nav__link-line1">Hola, Identifícate</span>
+          <span class="nav__link-line2">Ver Productos</span>
+        </a>
+      {% endif %}
     </nav>
   </div>
 </header>
