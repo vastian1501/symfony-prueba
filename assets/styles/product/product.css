@@ -298,24 +298,147 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .container_product {
+    width: 95%;
+    padding: 1.5rem 1rem;
+  }
 
-  .products-table__header,
+  .products-table__header {
+    grid-template-columns: 0.8fr 1fr 1.5fr 1fr;
+    font-size: 0.9rem;
+  }
+
+  .product-card {
+    grid-template-columns: 0.8fr 1fr 1.5fr 1fr;
+  }
+
+  .product-info__title {
+    font-size: 1rem;
+  }
+
+  .score__number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container_product {
+    padding: 1rem 0.5rem;
+  }
+
+  .products-table__header {
+    display: none;
+  }
+
   .product-card {
     grid-template-columns: 1fr;
     gap: 15px;
     text-align: center;
+    padding: 20px;
   }
 
   .ranking-badge {
-    position: relative;
-    top: 0;
-    left: 0;
+    position: static;
+    display: inline-block;
+    margin-bottom: 10px;
+    left: auto;
+    top: auto;
+  }
+
+  .ranking-badge::after {
+    display: none;
+  }
+
+  .product-image-section__position {
+    position: static;
     display: inline-block;
     margin-bottom: 10px;
   }
 
+  .product-image-section__img {
+    max-height: 200px;
+  }
+
+  .product-info {
+    width: 100%;
+    padding: 0;
+  }
+
+  .product-info__title {
+    font-size: 1.1rem;
+  }
+
   .score__number {
     font-size: 2rem;
+  }
+
+  .buy__price {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container_product {
+    width: 100%;
+    padding: 0.75rem 0.25rem;
+  }
+
+  .product-card {
+    padding: 15px 10px;
+    gap: 10px;
+  }
+
+  .ranking-badge {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  .product-image-section__img {
+    max-height: 150px;
+  }
+
+  .product-info__title {
+    font-size: 0.95rem;
+  }
+
+  .product-info__brand {
+    font-size: 0.8rem;
+  }
+
+  .score__number {
+    font-size: 1.8rem;
+  }
+
+  .score__stars {
+    font-size: 1rem;
+  }
+
+  .score__label,
+  .key-features__discount,
+  .key-features__shipping {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .buy__price {
+    font-size: 20px;
+  }
+
+  .buy__logo {
+    width: 80px;
+  }
+
+  .features-expanded {
+    padding: 1rem;
+  }
+
+  .features-expanded__title {
+    font-size: 1rem;
+  }
+
+  .features-expanded__item {
+    font-size: 0.9rem;
+    padding-left: 1.2rem;
   }
 }

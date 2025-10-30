@@ -56,3 +56,19 @@ body {
 .btn--secondary:hover {
   background-color: #e57e00;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn {
+    max-width: 100%;
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}

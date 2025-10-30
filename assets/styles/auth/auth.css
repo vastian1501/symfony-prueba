@@ -340,21 +340,165 @@
 }
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .auth {
-    padding: 12px;
+    padding: 16px;
   }
 
   .auth__wrapper {
     max-width: 100%;
   }
 
+  .auth__main {
+    margin-top: 40px;
+  }
+
   .auth-card {
-    padding: 20px 16px;
+    padding: 20px;
+  }
+
+  .auth-card__title {
+    font-size: 24px;
+  }
+
+  .form-group__input {
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 13px 35px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth {
+    padding: 10px;
+  }
+
+  .auth__wrapper {
+    max-width: 100%;
+  }
+
+  .auth__main {
+    margin-top: 30px;
+  }
+
+  .auth-card {
+    padding: 18px 14px;
+    border-radius: 6px;
+  }
+
+  .auth-card__title {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .auth-alert {
+    padding: 12px 14px;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .auth-alert__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .auth-alert__text {
+    font-size: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group__label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .form-group__input {
+    height: 40px;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+
+  .form-group__hint {
+    font-size: 11px;
+  }
+
+  .form-checkbox__checkmark {
+    width: 18px;
+    height: 18px;
+  }
+
+  .form-checkbox__label {
+    font-size: 13px;
+  }
+
+  .form-checkbox__hint {
+    font-size: 11px;
+    margin-left: 28px;
+  }
+
+  .btn {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+
+  .auth-card__footer {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .auth-card__terms {
+    font-size: 12px;
+  }
+
+  .auth-divider {
+    margin: 20px 0;
+  }
+
+  .auth-divider__text {
+    font-size: 12px;
   }
 
   .auth-footer-nav {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .auth-footer-nav__link {
+    font-size: 11px;
+  }
+
+  .auth__copyright {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .auth {
+    padding: 8px;
+  }
+
+  .auth-card {
+    padding: 16px 12px;
+  }
+
+  .auth-card__title {
+    font-size: 20px;
+  }
+
+  .form-group__input {
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 10px 25px;
+    font-size: 13px;
   }
 }
